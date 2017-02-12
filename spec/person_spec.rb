@@ -1,6 +1,5 @@
 describe Person do
 
-  subject { described_class }
   describe '#initialize' do
     context 'when initialized with first_name and last_name' do
       subject { described_class.new("John","Doe")}
@@ -27,7 +26,16 @@ describe Person do
 
   describe '#print_name' do
     context 'when first_name and last_name are passed as parameter' do
+      subject { described_class }
       specify { expect( subject.new("John","Smith").print_name ).to eq "John Smith" }
+
+      it "prints name with first name and last name capitalized" do
+        expect( subject.new("john","smith").print_name ).to eq "John Smith"
+      end
+
+      it "prints full name removing unwanted spaces in first_name and last_name" do
+        expect( subject.new("j ohn","smith").print_name ).to eq "John Smith"
+      end
     end
 
     context 'when first_name and last_name are assigned  seperately' do
@@ -35,6 +43,10 @@ describe Person do
       p1.first_name = 'Jane'
       p1.last_name = 'Doe'
       specify { expect( p1.print_name ).to eq "Jane Doe" }
+
+      it "prints name with first name and last name capitalized" do
+        expect( p1.print_name ).to eq "Jane Doe"
+      end
     end
 
     context 'when only first_name is  assigned' do
@@ -48,8 +60,5 @@ describe Person do
       p1.last_name = 'Doe'
       specify { expect( p1.print_name ).to eq "Doe" }
     end
-
-
-
   end
 end

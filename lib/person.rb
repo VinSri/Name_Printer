@@ -8,13 +8,17 @@ class Person
   end
 
   def print_name
-    "#{name_cleanser(first_name)} #{name_cleanser(last_name)}".strip
+    full_name.strip
   end
 
   private
 
-  def name_cleanser name
-    name.strip.capitalize unless name.nil?
+  def format_name name
+    name.gsub(/\s+/, '').capitalize unless name.nil?
+  end
+
+  def full_name
+    "#{format_name @first_name} #{format_name @last_name}"
   end
 end
 
