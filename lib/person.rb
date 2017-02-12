@@ -8,13 +8,13 @@ class Person
   end
 
   def print_name
-    name_cleanser(first_name) + " " + name_cleanser(last_name)
+    "#{name_cleanser(first_name)} #{name_cleanser(last_name)}".strip
   end
 
   private
 
   def name_cleanser name
-    name.strip.capitalize
+    name.strip.capitalize unless name.nil?
   end
 end
 

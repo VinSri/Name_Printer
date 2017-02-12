@@ -37,6 +37,18 @@ describe Person do
       specify { expect( p1.print_name ).to eq "Jane Doe" }
     end
 
+    context 'when only first_name is  assigned' do
+      p1 = Person.new
+      p1.first_name = 'Jane'
+      specify { expect( p1.print_name ).to eq "Jane" }
+    end
+
+    context 'when only first_name is  assigned' do
+      p1 = Person.new
+      p1.last_name = 'Doe'
+      specify { expect( p1.print_name ).to eq "Doe" }
+    end
+
 
 
   end
