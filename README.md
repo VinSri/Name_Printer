@@ -30,7 +30,7 @@ The method gives the full name and removes off unnecessary spaces in it.
 format_name name
 ```
 
-The method is used as cleanser that is used to remove extra or unnecessary spaces from first_name and last_name. This method also capitalizes them.
+The method is used as cleanser that is used to remove extra or unnecessary spaces from a string that is passed as its argument. This method also capitalizes the string.
 
 ```
 full_name
