@@ -8,9 +8,13 @@ class Person
   end
 
   def print_name
-    first_name + " " + last_name
+    name_cleanser(first_name) + " " + name_cleanser(last_name)
   end
 
+  private
 
+  def name_cleanser name
+    name.strip.capitalize
+  end
 end
 
